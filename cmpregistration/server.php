@@ -4,9 +4,9 @@ session_start();
 // initializing variables
 $username = "";
 $email    = "";
-$name = "";
-$collegename = "";
-$department = "";
+$cname = "";
+$id = "";
+$ = "";
 $registrationid = "";
 $course = "";
 $email = "";
