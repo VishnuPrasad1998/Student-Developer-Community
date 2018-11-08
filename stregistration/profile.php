@@ -1,23 +1,19 @@
 <html>
 <body>
 <div id="container">
-		<div id="left-nav">
-				<div class="user-details">
-					<h3><?php echo $name ?></h3>
-					<h2><?php echo $username ?></h2>
-				</div>
-		</div>
-
+		
 		<div id="right-nav">
 			<h1>Personal Info</h1>
 			<hr />
 			<br />
-			<?php
+			<?php 
 			include('server.php');
-			$result=mysql_query("SELECT * FROM students where username='$username' ");
-			while($test = mysql_fetch_array($result))
+			$con = mysqli_connect('localhost', 'root', '', 'sdop');
+			$username = "abc45";
+			$result=mysqli_query($con,"SELECT * FROM students where username='$username' ");
+			while($test = mysqli_fetch_array($result))
 			{
-				$id = $test['user_id'];
+				$username = $test['username'];
 				echo " <div class='info-user'>";
 				echo " <div>";
 				echo " <label>Name:</label>&nbsp;&nbsp;&nbsp;<b>".$test['name']."</b>";
@@ -52,7 +48,7 @@
 				echo "</div> ";
 				echo "<br /> ";
 				echo " <div class='edit-info'>";
-				echo " <a href ='edit_profile.php?user_id=$id'><button>Edit Profile</button></a>";
+				echo " <a href ='edit_profile1.php?username=$username'><button>Edit Profile</button></a>";
 				echo "</div> ";
 				echo "<br /> ";
 				echo "<br /> ";
