@@ -1,16 +1,33 @@
 <html>
+<head>
+		<title>sdop-edit</title>
+		<link rel="stylesheet" type="text/css" href="edit_profile.css">
+	</head>
+
 <body>
-<div id="container">
-		
-		<div id="right-nav">
-			<h1>Personal Info</h1>
-			<hr />
-			<br />
-			<?php 
-			include('server.php');
+
+	<div id="header">
+		<div class="head-view">
+			<ul>
+				<li><a href="home.php" title="sdop"><b>SDOP</b></a></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li><a href="home.php" title="Home"><label>Home</label></a></li>
+				<li><a href="skills.php" title="skills"><label>Skills</label></a></li>
+				<li><a href="profile.php" title="Profile"><label class="active">Profile</label></a></li>
+				<li><a href="notification.php" title="skills"><label>Notifications</label></a></li>
+				<li><a href="logout.php" title="Log out"><button class="btn-sign-in" value="Log out">Log out</button></a></li>
+			</ul>
+		</div>
+	</div>
+			<?php include('server.php');
 			$con = mysqli_connect('localhost', 'root', '', 'sdop');
-			$username = "abc45";
-			$result=mysqli_query($con,"SELECT * FROM students where username='$username' ");
+			$username = $_SESSION['username'];
+			$result=mysqli_query($con,"SELECT * FROM students WHERE username ='$username'") or die(mysqli_error());
 			while($test = mysqli_fetch_array($result))
 			{
 				$username = $test['username'];
@@ -49,6 +66,11 @@
 				echo "<br /> ";
 				echo " <div class='edit-info'>";
 				echo " <a href ='edit_profile1.php?username=$username'><button>Edit Profile</button></a>";
+				echo "</div> ";
+				echo "<br /> ";
+				echo "<br /> ";
+				echo " <div class='delete-info'>";
+				echo " <a href ='delete.php?username=$username'><button>Delete Profile</button></a>";
 				echo "</div> ";
 				echo "<br /> ";
 				echo "<br /> ";

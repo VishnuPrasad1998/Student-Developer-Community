@@ -1,8 +1,8 @@
 <?php
 require('server.php');
 $con = mysqli_connect('localhost', 'root', '', 'sdop');
-$username = "abc45";
-			$result=mysqli_query($con,"SELECT * FROM students where username='$username' ");
+$username = $_SESSION['username'];
+$result=mysqli_query($con,"SELECT * FROM students where username='$username' ");
 $test = mysqli_fetch_array($result);
 if (!$result) 
 		{
@@ -10,20 +10,20 @@ if (!$result)
 		}
 $name=$test['name'];
 $email=$test['email'];
-$collegename=$test['collegename'];
+$department=$test['department'];
 $dob=$test['dob'];
 $gender=$test['gender'];
-$department=$test['department'];
+$collegename=$test['collegename'];
 if(isset($_POST['save']))
 {	
 $name_save=$_POST['name'];
 $email_save=$_POST['email'];
-$username_save=$_POST['username'];
+$department_save=$_POST['department'];
 $birthday_save=$_POST['dob'];
 $gender_save=$_POST['gender'];
-$department_save=$_POST['department'];
-	mysqli_query($con,"UPDATE students SET name ='$name_save', email ='$email_save', username ='$username_save', 
-	dob ='$birthday_save' , gender ='$gender_save', department ='$department_save' WHERE username = '$username'")
+$collegename_save=$_POST['collegename'];
+	mysqli_query($con,"UPDATE students SET name ='$name_save', email ='$email_save', department ='$department_save', 
+	dob ='$birthday_save' , gender ='$gender_save',collegename='$collegename_save'  WHERE username = '$username'")
 				or die(mysql_error()); 
 	echo "Saved!";
 	
@@ -35,7 +35,7 @@ $department_save=$_POST['department'];
 <html>
 
 	<head>
-		<title>Welcome  To Biobook - Sign up, Log in, Post </title>
+		<title>sdop-edit</title>
 		<link rel="stylesheet" type="text/css" href="edit_profile.css">
 	</head>
 
@@ -53,7 +53,9 @@ $department_save=$_POST['department'];
 				<li></li>
 				<li><a href="#" title="<?php echo $username ?>"><label><?php echo $username ?></label></a></li>
 				<li><a href="home.php" title="Home"><label>Home</label></a></li>
+				<li><a href="skills.php" title="skills"><label>Skills</label></a></li>
 				<li><a href="profile.php" title="Profile"><label class="active">Profile</label></a></li>
+				<li><a href="notification.php" title="skills"><label>Notifications</label></a></li>
 				<li><a href="logout.php" title="Log out"><button class="btn-sign-in" value="Log out">Log out</button></a></li>
 			</ul>
 		</div>
@@ -79,10 +81,10 @@ $department_save=$_POST['department'];
 					<td><input type="text" name="email" value="<?php echo $email; ?>" placeholder="Enter your mailid....." class="form-1" title="Enter your mailid" required /></td>
 				</tr>
 				<tr>
-					<td><label>User name</label></td>
+					<td><label>Department</label></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="username" value="<?php echo $username; ?>" placeholder="Enter your username....." class="form-1" title="Enter your username" required /></td>
+					<td><input type="text" name="department" value="<?php echo $department; ?>" placeholder="Enter your Department....." class="form-1" title="Enter your department" required /></td>
 				</tr>
 			</table>
 		</fieldset>
@@ -106,8 +108,8 @@ $department_save=$_POST['department'];
 					</td>
 				</tr>
 				<tr>
-					<td><label>Department</label></td>
-					<td><input type="text" name="department" value="<?php echo $department; ?>" placeholder="09...." maxlength="13" class="form-1" title="Enter your  department" required /></td>
+					<td><label>College Name</label></td>
+					<td><input type="text" name="collegename" value="<?php echo $collegename; ?>" placeholder="college...." maxlength="13" class="form-1" title="Enter your  College" required /></td>
 				</tr>
 			</table>
 		</fieldset>
