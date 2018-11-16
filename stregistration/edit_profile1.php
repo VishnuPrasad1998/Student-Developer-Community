@@ -1,6 +1,6 @@
 <?php
 require('server.php');
-$con = mysqli_connect('localhost', 'root', '', 'sdop');
+$con = mysqli_connect('localhost', 'root', '', 'sdop1');
 $username = $_SESSION['username'];
 $result=mysqli_query($con,"SELECT * FROM students where username='$username' ");
 $test = mysqli_fetch_array($result);
@@ -52,8 +52,7 @@ $collegename_save=$_POST['collegename'];
 				<li></li>
 				<li></li>
 				<li><a href="#" title="<?php echo $username ?>"><label><?php echo $username ?></label></a></li>
-				<li><a href="home.php" title="Home"><label>Home</label></a></li>
-				<li><a href="skills.php" title="skills"><label>Skills</label></a></li>
+				<li><a href="skill.php" title="skill"><label class="active">Skill</label></a></li>
 				<li><a href="profile.php" title="Profile"><label class="active">Profile</label></a></li>
 				<li><a href="notification.php" title="skills"><label>Notifications</label></a></li>
 				<li><a href="logout.php" title="Log out"><button class="btn-sign-in" value="Log out">Log out</button></a></li>

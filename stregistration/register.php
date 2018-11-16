@@ -41,7 +41,7 @@
   	  <input type="text" name="gender" value="<?php echo $gender; ?>">
   	</div>
   	<div class="input-group">
-  	  <label>message</label>
+  	  <label>Address</label>
   	  <input type="text area" name="message" value="<?php echo $message; ?>">
   	</div>
   	<div class="input-group">

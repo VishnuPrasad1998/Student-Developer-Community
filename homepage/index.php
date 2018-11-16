@@ -223,21 +223,21 @@
       <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-3">
           <div class="box-team wow bounceInUp" data-wow-delay="0.1s">
-            <img src="img/team/1.jpg" alt="" class="img-circle img-responsive" />
+            <img src="#img/team/1.jpg" alt="" class="img-circle img-responsive" />
             <h4>Selman Al Faris</h4>
             <p>Designer</p>
           </div>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-3" data-wow-delay="0.5s">
           <div class="box-team wow bounceInUp">
-            <img src="img/team/3.jpg" alt="" class="img-circle img-responsive" />
+            <img src="#img/team/3.jpg" alt="" class="img-circle img-responsive" />
             <h4>Vishnu Prasad</h4>
             <p>Chief editor</p>
           </div>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-3" data-wow-delay="0.7s">
           <div class="box-team wow bounceInUp">
-            <img src="img/team/4.jpg" alt="" class="img-circle img-responsive" />
+            <img src="#img/team/4.jpg" alt="" class="img-circle img-responsive" />
             <h4>Rasmi K R</h4>
             <p>Chief Controller</p>
           </div>

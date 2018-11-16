@@ -9,31 +9,30 @@
 	<div id="header">
 		<div class="head-view">
 			<ul>
-				<li><a href="home.php" title="sdop"><b>SDOP</b></a></li>
+				<li><a href="#home.php" title="sdop"><b>SDOP</b></a></li>
 				<li></li>
 				<li></li>
 				<li></li>
 				<li></li>
 				<li></li>
 				<li></li>
-				<li><a href="home.php" title="Home"><label>Home</label></a></li>
-				<li><a href="skills.php" title="skills"><label>Skills</label></a></li>
+				<li><a href="http://localhost/mini/homepage/index.php" title="home"><label class="active">Profile</label></a></li>
 				<li><a href="profile.php" title="Profile"><label class="active">Profile</label></a></li>
-				<li><a href="notification.php" title="skills"><label>Notifications</label></a></li>
+				<li><a href="project1.php" title="project"><label class="active">Project</label></a></li>
 				<li><a href="logout.php" title="Log out"><button class="btn-sign-in" value="Log out">Log out</button></a></li>
 			</ul>
 		</div>
 	</div>
 			<?php include('server.php');
-			$con = mysqli_connect('localhost', 'root', '', 'sdop');
+			$con = mysqli_connect('localhost', 'root', '', 'sdop1');
 			$username = $_SESSION['username'];
-			$result=mysqli_query($con,"SELECT * FROM students WHERE username ='$username'") or die(mysqli_error());
+			$result=mysqli_query($con,"SELECT * FROM company WHERE username ='$username'") or die(mysqli_error());
 			while($test = mysqli_fetch_array($result))
 			{
 				$username = $test['username'];
 				echo " <div class='info-user'>";
 				echo " <div>";
-				echo " <label>Name:</label>&nbsp;&nbsp;&nbsp;<b>".$test['name']."</b>";
+				echo " <label>CompanyName:</label>&nbsp;&nbsp;&nbsp;<b>".$test['cname']."</b>";
 				echo "</div> ";
 				echo "<hr /> ";
 				echo "<br /> ";
@@ -43,27 +42,31 @@
 				echo "<hr /> ";
 				echo "<br /> ";
 				echo " <div>";
-				echo " <label>College name:</label>&nbsp;&nbsp;&nbsp;<b>".$test['collegename']."</b>";
+                                echo " <label>Address:</label>&nbsp;&nbsp;&nbsp;<b>".$test['address']."</b>";
 				echo "</div> ";
 				echo "<hr /> ";
 				echo "<br /> ";
 				echo " <div>";
-				echo " <label>Birthday</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>".$test['dob']."</b>";
+				echo " <label>About:</label>&nbsp;&nbsp;&nbsp;<b>".$test['about']."</b>";
 				echo "</div> ";
 				echo "<hr /> ";
 				echo "<br /> ";
 				echo " <div>";
-				echo " <label>Gender</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>".$test['gender']."</b>";
+				echo " <label>Services:</label>&nbsp;&nbsp;&nbsp;<b>".$test['services']."</b>";
 				echo "</div> ";
 				echo "<hr /> ";
 				echo "<br /> ";
 				echo " <div>";
-				echo " <label>Department</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>".$test['department']."</b>";
+				echo " <label>Username</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>".$test['username']."</b>";    
+                                echo "</div> ";
+				echo "<hr /> ";
+				echo "<br /> ";
+				echo " <div>";
+                                echo " <label>Company id:</label>&nbsp;&nbsp;&nbsp;<b>".$test['cid']."</b>";
 				echo "</div> ";
 				echo "<hr /> ";
 				echo "<br /> ";
-				echo "</div> ";
-				echo "<br /> ";
+				echo " <div>";
 				echo " <div class='edit-info'>";
 				echo " <a href ='edit_profile1.php?username=$username'><button>Edit Profile</button></a>";
 				echo "</div> ";

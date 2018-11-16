@@ -6,7 +6,7 @@ header('location:index.php');
 }
 
 $username = $_SESSION['username'];
-$con = mysqli_connect('localhost', 'root', '', 'sdop');
+$con = mysqli_connect('localhost', 'root', '', 'sdop1');
 $query=mysqli_query ($con,"SELECT * FROM students WHERE username ='username'") or die(mysql_error());
 $row=mysqli_fetch_array($query);
 $name=$row['name'];

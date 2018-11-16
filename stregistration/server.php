@@ -4,22 +4,20 @@ session_start();
 // initializing variables
 $username = "";
 $email    = "";
-$cname = "";
-$id = "";
-$ = "";
+$name = "";
+$collegename = "";
+$department = "";
 $registrationid = "";
 $course = "";
-$email = "";
 $gender = "";
 $message = "";
 $dob = "";
-$username = "";
 $password_1 = "";
 $password_2 = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'sdop');
+$db = mysqli_connect('localhost', 'root', '', 'sdop1');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -40,8 +38,16 @@ if (isset($_POST['reg_user'])) {
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
+  if (empty($name)) { array_push($errors, "name is required"); }
+  if (empty($collegename)) { array_push($errors, "collegename is required"); }
+  if (empty($department)) { array_push($errors, "department is required"); }
+  if (empty($registrationid)) { array_push($errors, "registrationid is required"); }
+  if (empty($course)) { array_push($errors, "course is required"); }
+  if (empty($email)) { array_push($errors, "email is required"); }
+  if (empty($gender)) { array_push($errors, "gender is required"); }
+  if (empty($message)) { array_push($errors, "message is required"); }
+  if (empty($dob)) { array_push($errors, "dob is required"); }
   if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
 	array_push($errors, "The two passwords do not match");
@@ -107,13 +113,3 @@ if (isset($_POST['login_user'])) {
 }
 
 ?>
-<html>
-<body>
-  <?php
-      echo $username;
-
-
-
-  ?>
-</body>
-</html>

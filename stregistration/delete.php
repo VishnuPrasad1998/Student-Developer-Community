@@ -1,6 +1,6 @@
 <?php
 require('server.php');
-$conn = mysqli_connect('localhost', 'root', '', 'sdop');
+$conn = mysqli_connect('localhost', 'root', '', 'sdop1');
 $username = $_SESSION['username'];
 $result=mysqli_query($conn,"SELECT * FROM students where username='$username' ");
 $test = mysqli_fetch_array($result);

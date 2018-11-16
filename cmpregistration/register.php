@@ -13,29 +13,30 @@
   <form method="post" action="register.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
+      <label>ID</label>
+      <input type="text" name="cid" value="<?php echo $cid; ?>">
+    </div>
+    <div class="input-group">
   	  <label>Company Name</label>
   	  <input type="text" name="cname" value="<?php echo $cname; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>ID</label>
-  	  <input type="text" name="id" value="<?php echo $id; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>About</label>
-  	  <input type="text" name="about" value="<?php echo $about; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>Services</label>
-  	  <input type="text area" name="services" value="<?php echo $services; ?>">
   	</div>
   	<div class="input-group">
   	  <label>email</label>
   	  <input type="email" name="email" value="<?php echo $email; ?>">
   	</div>
-  	<div class="input-group">
+        <div class="input-group">
   	  <label>Address</label>
-  	  <input type="text area" name="address" value="<?php echo $address; ?>">
+  	  <textarea name="address" rows="5" cols="40" value="<?php echo $address; ?>"></textarea>
   	</div>
+  	<div class="input-group">
+  	  <label>About</label>
+  	  <textarea name="about" rows="5" cols="40" value="<?php echo $about; ?>"></textarea>
+  	</div>
+  	<div class="input-group">
+  	  <label>Services</label>
+  	  <textarea name="services" rows="5" cols="40" value="<?php echo $services; ?>"></textarea>
+  	</div>
+  	
   	<div class="input-group">
   	  <label>username</label>
   	  <input type="text" name="username" value="<?php echo $username; ?>">
